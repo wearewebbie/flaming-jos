@@ -63,6 +63,7 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/assets/fonts");
     eleventyConfig.addPassthroughCopy("src/assets/swiper");
     eleventyConfig.addPassthroughCopy("src/assets/images/website-preview-image.png");
+    eleventyConfig.addPassthroughCopy("src/assets/images/logo-icon.png");
 
     return {
         dir: {

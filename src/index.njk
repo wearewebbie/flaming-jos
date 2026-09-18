@@ -4,12 +4,119 @@ title: "Hello World"
 description: "Hello"
 permalink: index.html
 ---
-<section>
-    </br>
-    <h1>Hello World</h1>
-    <p>This is a sample page to demonstrate the use of the image shortcode.</p>
-    </br>
-    <h2>Sample Image</h2>
-    <p>This is how you use the image shortcode:</p>
-    {% image "src/assets/images/webbie-logo.png", "Description of image", "your-image-classes-here" %}
+
+<section id="home" class="relative flex min-h-screen items-center overflow-hidden bg-black py-[80px]">
+  {% image "src/assets/images/landing-background.png", "",
+      "absolute inset-0 h-full w-full object-cover" %}
+  <div class="absolute inset-0 bg-black/50"></div>
+  <div class="container relative flex flex-col items-center gap-[20px] text-center">
+    <h1 class="heading-1-extrabold text-white">BBQ and Grill Food Truck</h1>
+    <p class="heading-4-extrabold text-white">"Where Flavour Ignites and Taste Takes the Wheel!"</p>
+  </div>
 </section>
+
+<section id="about" class="bg-orange py-[80px]">
+  <div class="container">
+    <div class="flex flex-col lg:flex-row gap-[40px] items-center">
+            <div class="flex flex-col gap-[20px] flex-1">
+                <h2 class="heading-1-extrabold text-white">Welcome</h2>
+                <p class="body-medium text-white">Get ready for a flavour explosion at Flaming Jo’s BBQ & Grill food truck! We’re fired up about bringing you some of the best in smoky goodness.</p>
+<p class="text-body text-white">From a labour of love comes the slow-cooked perfection of our smoked pulled pork to the Asian inspired grilled sticky chicken. All accomplished with mouthwatering sauces and sides. The menu doesn't stop here, there’s lots of tasty dishes to try.</p>
+
+<p class="text-body text-white">Flaming Jo’s is our celebration of Family and BBQ passion. We hope you will join us and let the flames of flavour dance on your plate!</p>
+            </div>
+               <div class="flex-1">
+                      {% image "src/assets/images/illustration.png", "Illustration of Flaming Jo's food truck",
+          "w-[500px]" %}
+          </div>
+  </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="relative overflow-hidden bg-black py-[80px]">
+  {% image "src/assets/images/menu-background.png", "",
+      "absolute inset-0 h-full w-full object-cover" %}
+  <div class="absolute inset-0 bg-black/50"></div>
+  <div class="container relative flex flex-col items-center gap-[40px]">
+    <div class="flex max-w-[700px] flex-col gap-[20px] text-center">
+      <h2 class="heading-1-extrabold text-white">Menu</h2>
+      <p class="body-medium text-white">Discover a symphony of smoky delights at Flaming Jo's. From perfectly seasoned grilled meats to mouthwatering sides, each dish is a celebration of bold flavors and exceptional quality. Whether it's tender ribs, juicy pulled pork, or char-kissed burgers, our commitment to the art of barbecue ensures a memorable feast for every enthusiast. At Flaming Jo's, we turn every meal into a smokin' sensation that leaves you craving more.</p>
+    </div>
+    <div class="grid w-full grid-cols-2 gap-[20px] lg:grid-cols-4">
+      {% image "src/assets/images/menu-1.png", "Loaded fries topped with pulled pork, chilli and spring onion", "w-full" %}
+      {% image "src/assets/images/menu-2.png", "Pulled pork brioche burger at a Flaming Jo's event", "w-full" %}
+      {% image "src/assets/images/menu-3.png", "Loaded fries topped with pulled pork, jalapeños and spring onion", "w-full" %}
+      {% image "src/assets/images/menu-4.png", "Hot dog topped with ketchup and mustard", "w-full" %}
+    </div>
+  </div>
+</section>
+
+<section id="location" class="bg-orange py-[80px]">
+  <div class="container">
+    <div class="flex flex-col lg:flex-row-reverse gap-[40px] items-center ">
+      <div class="flex flex-col gap-[20px] flex-1">
+        <h2 class="heading-1-extrabold text-black">Where you'll find us</h2>
+        <p class="body-medium text-black">Flaming Jo’s is on the move, spicing up events across Ireland! Follow the flames for our on-the-go barbecue experience at local fairs, festivals, and pop-ups. Stay tuned to our socials to catch the sizzle and join us for a fiery feast wherever we roll in next!</p>
+      </div>
+      <div class="flex-1">
+      {% image "src/assets/images/ireland-illustration.png", "Illustrated map of Ireland marking the locations",
+          "h-[500px] w-auto" %}
+          </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="bg-black py-[80px]">
+  <div class="container">
+    <div class="flex flex-col lg:flex-row gap-[40px]">
+      <div class="flex flex-col gap-[40px] flex-1">
+        <h2 class="heading-1-extrabold text-white">Contact Us</h2>
+        <p class="body-medium text-white max-w-lg">Let us cook up some storms for you! Fill out our enquiry form and we will get back to you as soon as possible!</p>
+        <div class="flex flex-col gap-[8px]">
+          {% if site.phone %}
+          <a href="tel:{{ site.phone }}" class="body-medium text-white hover:underline">Mobile: {{ site.phone }}</a>
+          {% endif %}
+          {% if site.email %}
+          <a href="mailto:{{ site.email }}" class="body-medium text-white hover:underline">Email: {{ site.email }}</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <form action="{{ site.contactFormAction }}" method="POST" class="flex flex-col gap-[20px] flex-1">
+        <div class="flex flex-col gap-[8px]">
+          <label for="name" class="body-medium text-white">Full Name*</label>
+          <input type="text" id="name" name="name" placeholder="Smokey Jo" required class="w-full rounded-[4px] border border-[#b8c0cc] bg-white p-[16px] text-black focus:outline-none focus:ring-2 focus:ring-orange">
+        </div>
+        <div class="flex flex-col gap-[8px]">
+          <label for="email" class="body-medium text-white">Email*</label>
+          <input type="email" id="email" name="email" placeholder="smokey.jo@flames.co.uk" required class="w-full rounded-[4px] border border-[#b8c0cc] bg-white p-[16px] text-black focus:outline-none focus:ring-2 focus:ring-orange">
+        </div>
+        <div class="flex flex-col gap-[8px]">
+          <label for="message" class="body-medium text-white">Message*</label>
+          <textarea id="message" name="message" placeholder="Enter your message" required rows="4" class="w-full rounded-[4px] border border-[#b8c0cc] bg-white p-[16px] text-black focus:outline-none focus:ring-2 focus:ring-orange"></textarea>
+        </div>
+        <button type="submit" class="self-start inline-block py-[12px] px-[24px] border-2 border-orange bg-orange text-white rounded-[4px] hover:bg-transparent hover:text-orange cursor-pointer transition-colors duration-300 text-center">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white py-[80px]">
+      <div class="container">
+            <div class="flex flex-col gap-[40px]">
+                            <div class="flex flex-col gap-[20px]">
+                <h2 class="heading-1-extrabold text-black text-center">Check out the instagram </h2>
+                <a href="{{ site.social.instagram }}" target="_blank" rel="noopener noreferrer" class="heading-3-bold text-orange hover:underline text-center"> @flamingjos </a>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-[20px]">
+                    {% image "src/assets/images/instagram-1.jpeg", "Instagram post 1", "w-full" %}
+                    {% image "src/assets/images/instagram-2.jpeg", "Instagram post 2", "w-full" %}
+                    {% image "src/assets/images/instagram-3.jpeg", "Instagram post 3", "w-full" %}
+                    {% image "src/assets/images/instagram-4.jpeg", "Instagram post 4", "w-full" %}
+
+                </div>
+                <a href="{{ site.social.instagram }}" target="_blank" rel="noopener noreferrer" class="self-center inline-block py-[12px] px-[24px] border-2 border-orange bg-orange text-white rounded-[4px] hover:bg-transparent hover:text-orange cursor-pointer transition-colors duration-300 text-center">Follow us</a>
+            </div>
+      </div>
+    </section>

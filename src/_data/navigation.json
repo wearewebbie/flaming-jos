@@ -1,15 +1,22 @@
 [
     {
         "label": "Home",
-        "url": "/"
+        "url": "/#home"
     },
     {
-        "label": "Link One",
-        "url": "/page-one/"
+        "label": "About",
+        "url": "/#about"
+    },
+    {
+        "label": "Menu",
+        "url": "/#menu"
+    },
+    {
+        "label": "Location",
+        "url": "/#location"
     },
     {
         "label": "Contact",
-        "url": "/contact/",
-        "type": "cta"
+        "url": "/#contact"
     }
 ]
